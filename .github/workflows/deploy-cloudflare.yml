@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: Build and deploy
+    name: Validate, build and deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -47,8 +47,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build production bundle
-        run: npm run build
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run TypeScript verification
+        run: npx tsc --noEmit
+
+      - name: Build and run tests
+        run: npm test
 
       - name: Deploy to Cloudflare Workers
         run: npm exec wrangler deploy
