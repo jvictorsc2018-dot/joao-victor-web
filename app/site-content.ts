@@ -1,6 +1,14 @@
 export type Language = "pt-BR" | "en-US" | "es-ES";
 
-const sharedProjects = [
+type SharedProject = {
+  name: string;
+  href: string | null;
+  caseHref: string | null;
+  visualClass: string;
+  image: string;
+};
+
+const sharedProjects: SharedProject[] = [
   {
     name: "Fabelly",
     href: "https://usefabelly.netlify.app/",
@@ -43,7 +51,7 @@ const sharedProjects = [
     visualClass: "project-calma",
     image: "",
   },
-] as const;
+];
 
 const sharedProducts = [
   {
