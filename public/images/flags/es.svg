@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 42" role="img" aria-label="Bandeira da Espanha">
+  <rect width="60" height="42" fill="#aa151b"/>
+  <rect y="10.5" width="60" height="21" fill="#f1bf00"/>
+  <g transform="translate(15 21)">
+    <rect x="-2.6" y="-5" width="5.2" height="9" rx=".6" fill="#aa151b"/>
+    <path d="M-4.2-6.2h8.4l-1.2 2h-6Z" fill="#aa151b"/>
+    <path d="M-3.5 5h7" stroke="#aa151b" stroke-width="1.6"/>
+  </g>
+</svg>
