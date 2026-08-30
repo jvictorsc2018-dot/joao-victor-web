@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "./site-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "João Victor Web | Sites e sistemas sob medida",
   description:
     "Desenvolvimento de sites, lojas virtuais, cardápios digitais e sistemas de gestão personalizados para empresas.",
@@ -24,12 +26,21 @@ export const metadata: Metadata = {
     "João Victor Web",
   ],
   authors: [{ name: "João Victor Costa" }],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "João Victor Web",
     description:
       "Sites e sistemas que transformam ideias em negócios.",
     type: "website",
     locale: "pt_BR",
+    url: "/",
+    siteName: "João Victor Web",
   },
   other: {
     "codex-preview": "development",
@@ -38,6 +49,35 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "João Victor Web",
+      description:
+        "Sites e sistemas que transformam ideias em negócios.",
+      inLanguage: ["pt-BR", "en-US", "es-ES"],
+      publisher: { "@id": `${siteUrl}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: "João Victor Costa",
+      url: siteUrl,
+      jobTitle: "Desenvolvedor de sites e sistemas web",
+      knowsAbout: [
+        "Desenvolvimento de sites",
+        "Sistemas web",
+        "Lojas virtuais",
+        "Cardápios digitais",
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -50,6 +90,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         {children}
       </body>
     </html>

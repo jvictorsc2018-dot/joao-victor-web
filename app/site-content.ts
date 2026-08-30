@@ -1,43 +1,57 @@
 export type Language = "pt-BR" | "en-US" | "es-ES";
 
-const sharedProjects = [
+type SharedProject = {
+  name: string;
+  href: string | null;
+  caseHref: string | null;
+  visualClass: string;
+  image: string;
+};
+
+const sharedProjects: SharedProject[] = [
   {
     name: "Fabelly",
     href: "https://usefabelly.netlify.app/",
+    caseHref: null,
     visualClass: "project-fabelly",
     image: "/images/projects/fabelly-showcase.webp",
   },
   {
     name: "Fabelly Gestor",
     href: "https://fabelly-gestor.netlify.app/",
+    caseHref: null,
     visualClass: "project-gestor",
     image: "/images/projects/fabelly-gestor-showcase.webp",
   },
   {
     name: "FoodWave",
     href: "https://victorscape2.gumroad.com/l/foodwave-restaurant-system",
+    caseHref: "/projetos/foodwave",
     visualClass: "project-foodwave",
     image: "/images/projects/foodwave-showcase.webp",
   },
   {
     name: "AgendaWave",
     href: "https://agendawave.jvictorsc2018.chatgpt.site",
+    caseHref: "/projetos/agendawave",
     visualClass: "project-agendawave",
     image: "/images/projects/agendawave-showcase.webp",
   },
   {
     name: "StockWave",
     href: "https://stockwave.jvictorsc2018.chatgpt.site",
+    caseHref: "/projetos/stockwave",
     visualClass: "project-stockwave",
     image: "/images/projects/stockwave-showcase.webp",
   },
   {
     name: "Calmy",
     href: "/calmy",
+    caseHref: null,
     visualClass: "project-calma",
     image: "",
   },
-] as const;
+];
 
 const sharedProducts = [
   {
@@ -137,6 +151,17 @@ export const siteContent = {
       title: "Mais do que páginas: presença, operação e resultado.",
       text: "Cada projeto une direção visual, tecnologia e uma experiência pensada para transformar visitas em ação.",
       tags: ["Web responsiva", "Fluxos inteligentes", "Identidade própria"],
+      cta: "Explorar projetos",
+      primaryLabel: "Do conceito à solução",
+      primaryTitle: "Experiências que apresentam, conectam e vendem.",
+      secondaryLabel: "Em qualquer tela",
+      secondaryTitle: "Uma presença digital consistente.",
+      capabilitiesLabel: "Pilares das experiências digitais",
+      capabilities: [
+        { title: "Direção visual", text: "Estética alinhada ao seu negócio." },
+        { title: "Experiência responsiva", text: "Clareza no celular e no computador." },
+        { title: "Solução sob medida", text: "Recursos pensados para a operação real." },
+      ],
       studioAlt: "Composição visual de interfaces, painéis e experiências digitais na identidade João Victor Web",
       responsiveAlt: "Computador, tablet e celular apresentando interfaces digitais responsivas",
     },
@@ -322,6 +347,17 @@ export const siteContent = {
       title: "More than pages: presence, operations and results.",
       text: "Every project combines visual direction, technology and an experience designed to turn visits into action.",
       tags: ["Responsive web", "Smart workflows", "Distinct identity"],
+      cta: "Explore projects",
+      primaryLabel: "From concept to solution",
+      primaryTitle: "Experiences designed to present, connect and sell.",
+      secondaryLabel: "On every screen",
+      secondaryTitle: "A consistent digital presence.",
+      capabilitiesLabel: "Digital experience pillars",
+      capabilities: [
+        { title: "Visual direction", text: "A look aligned with your business." },
+        { title: "Responsive experience", text: "Clear on mobile and desktop." },
+        { title: "Custom solution", text: "Features shaped around real operations." },
+      ],
       studioAlt: "A visual composition of interfaces, dashboards and digital experiences in the João Victor Web identity",
       responsiveAlt: "Desktop, tablet and mobile devices displaying responsive digital interfaces",
     },
@@ -507,6 +543,17 @@ export const siteContent = {
       title: "Más que páginas: presencia, operación y resultados.",
       text: "Cada proyecto combina dirección visual, tecnología y una experiencia pensada para transformar visitas en acciones.",
       tags: ["Web adaptable", "Flujos inteligentes", "Identidad propia"],
+      cta: "Explorar proyectos",
+      primaryLabel: "Del concepto a la solución",
+      primaryTitle: "Experiencias para presentar, conectar y vender.",
+      secondaryLabel: "En cualquier pantalla",
+      secondaryTitle: "Una presencia digital consistente.",
+      capabilitiesLabel: "Pilares de las experiencias digitales",
+      capabilities: [
+        { title: "Dirección visual", text: "Una estética alineada con tu negocio." },
+        { title: "Experiencia adaptable", text: "Claridad en móvil y ordenador." },
+        { title: "Solución a medida", text: "Recursos pensados para la operación real." },
+      ],
       studioAlt: "Composición visual de interfaces, paneles y experiencias digitales con la identidad João Victor Web",
       responsiveAlt: "Ordenador, tableta y móvil mostrando interfaces digitales adaptables",
     },

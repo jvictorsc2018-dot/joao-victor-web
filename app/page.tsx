@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { detectLanguage, siteContent, type Language } from "./site-content";
 
-const languageOptions: Array<{ value: Language; label: string; name: string; flag: string }> = [
-  { value: "pt-BR", label: "PT", name: "Português", flag: "🇧🇷" },
-  { value: "en-US", label: "EN", name: "English", flag: "🇺🇸" },
-  { value: "es-ES", label: "ES", name: "Español", flag: "🇪🇸" },
+const languageOptions: Array<{ value: Language; label: string; name: string; flagSrc: string }> = [
+  { value: "pt-BR", label: "PT", name: "Português", flagSrc: "/images/flags/br.svg" },
+  { value: "en-US", label: "EN", name: "English", flagSrc: "/images/flags/us.svg" },
+  { value: "es-ES", label: "ES", name: "Español", flagSrc: "/images/flags/es.svg" },
 ];
 
 type Particle = {
@@ -267,7 +269,9 @@ export default function Home() {
         <div className="header-actions">
           <details className="language-switcher" ref={languageMenuRef}>
             <summary aria-label={`${content.languageLabel}: ${activeLanguage.name}`} title={content.languageLabel}>
-              <span className="language-flag" aria-hidden="true">{activeLanguage.flag}</span>
+              <span className="language-flag" aria-hidden="true">
+                <Image unoptimized src={activeLanguage.flagSrc} alt="" width={32} height={32} />
+              </span>
               <span className="language-code">{activeLanguage.label}</span>
               <span className="language-chevron" aria-hidden="true">⌄</span>
             </summary>
@@ -283,7 +287,9 @@ export default function Home() {
                     languageMenuRef.current?.removeAttribute("open");
                   }}
                 >
-                  <span className="language-flag" aria-hidden="true">{option.flag}</span>
+                  <span className="language-flag" aria-hidden="true">
+                    <Image unoptimized src={option.flagSrc} alt="" width={32} height={32} />
+                  </span>
                   <span>{option.name}</span>
                   <small>{option.label}</small>
                 </button>
@@ -497,14 +503,51 @@ export default function Home() {
             <div className="visual-tags">
               {content.visual.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
+            <a className="visual-project-link" href="#projetos">
+              {content.visual.cta} <span aria-hidden="true">↓</span>
+            </a>
           </div>
           <div className="visual-showcase-media">
             <figure className="visual-primary">
-              <img src="/images/digital-studio-banner.webp" alt={content.visual.studioAlt} width="1672" height="941" loading="lazy" decoding="async" />
+              <Image
+                unoptimized
+                src="/images/digital-studio-banner.webp"
+                alt={content.visual.studioAlt}
+                width={1672}
+                height={941}
+              />
+              <figcaption className="visual-image-caption visual-primary-caption">
+                <small>{content.visual.primaryLabel}</small>
+                <strong>{content.visual.primaryTitle}</strong>
+              </figcaption>
             </figure>
             <figure className="visual-secondary">
-              <img src="/images/responsive-showcase-banner.webp" alt={content.visual.responsiveAlt} width="1672" height="941" loading="lazy" decoding="async" />
+              <Image
+                unoptimized
+                src="/images/responsive-showcase-banner.webp"
+                alt={content.visual.responsiveAlt}
+                width={1672}
+                height={941}
+              />
+              <figcaption className="visual-image-caption visual-secondary-caption">
+                <span className="visual-live-dot" aria-hidden="true" />
+                <span>
+                  <small>{content.visual.secondaryLabel}</small>
+                  <strong>{content.visual.secondaryTitle}</strong>
+                </span>
+              </figcaption>
             </figure>
+            <div className="visual-capabilities" aria-label={content.visual.capabilitiesLabel}>
+              {content.visual.capabilities.map((item, index) => (
+                <article key={item.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <small>{item.text}</small>
+                  </div>
+                </article>
+              ))}
+            </div>
             <span className="visual-orbit" aria-hidden="true" />
           </div>
         </section>
@@ -537,13 +580,12 @@ export default function Home() {
                       <span className="calma-project-leaf leaf-two" />
                     </div>
                   ) : (
-                    <img
+                    <Image
+                      unoptimized
                       src={project.image}
                       alt=""
-                      width="1440"
-                      height="810"
-                      loading="lazy"
-                      decoding="async"
+                      width={1440}
+                      height={810}
                     />
                   )}
                   <span className="project-image-shine" />
@@ -552,17 +594,28 @@ export default function Home() {
                   <p>{project.category}</p>
                   <h3>{project.name}</h3>
                   <span>{project.description}</span>
-                  {project.href ? (
-                    <a
-                      href={project.href}
-                      target={project.href.startsWith("/") ? undefined : "_blank"}
-                      rel={project.href.startsWith("/") ? undefined : "noreferrer"}
-                    >
-                      {project.linkLabel} <span aria-hidden="true">↗</span>
-                    </a>
-                  ) : (
-                    <span className="project-status">{project.linkLabel}</span>
-                  )}
+                  <div className="project-links">
+                    {project.caseHref ? (
+                      <Link href={project.caseHref}>
+                        {language === "pt-BR" ? "Ver estudo de caso" : language === "en-US" ? "View case study" : "Ver caso de estudio"} <span aria-hidden="true">→</span>
+                      </Link>
+                    ) : null}
+                    {project.href ? (
+                      project.href.startsWith("/") ? (
+                        <Link href={project.href}>
+                          {project.linkLabel} <span aria-hidden="true">↗</span>
+                        </Link>
+                      ) : (
+                        <a className={project.caseHref ? "project-external-link" : undefined} href={project.href} target="_blank" rel="noreferrer">
+                          {project.caseHref
+                            ? (language === "pt-BR" ? "Abrir projeto" : language === "en-US" ? "Open project" : "Abrir proyecto")
+                            : project.linkLabel} <span aria-hidden="true">↗</span>
+                        </a>
+                      )
+                    ) : (
+                      <span className="project-status">{project.linkLabel}</span>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}
@@ -582,13 +635,12 @@ export default function Home() {
             {content.products.items.map((product) => (
               <article className={`product-card ${product.visualClass}`} key={product.name}>
                 <div className="product-art" role="img" aria-label={product.visualAria}>
-                  <img
+                  <Image
+                    unoptimized
                     src={product.image}
                     alt=""
-                    width="1440"
-                    height="810"
-                    loading="lazy"
-                    decoding="async"
+                    width={1440}
+                    height={810}
                   />
                   <span className="product-image-shine" aria-hidden="true" />
                 </div>
