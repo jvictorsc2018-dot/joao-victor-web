@@ -1167,8 +1167,8 @@ summary {
 .atom-orbit-one { animation: atom-orbit-one 18s linear infinite; }
 .atom-orbit-two { border-color: rgba(255, 177, 90, .62); animation: atom-orbit-two 22s linear infinite reverse; }
 .atom-orbit-three { border-color: rgba(255, 242, 223, .32); animation: atom-orbit-three 26s linear infinite; }
-.atom-nucleus { width: 38%; aspect-ratio: 1; border: 1px solid rgba(255, 177, 90, .52); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 42% 38%, #ff775f, #ff5b3e 43%, #b83d2c 100%); box-shadow: 0 0 0 1.2rem rgba(255,91,62,.04), 0 0 4rem rgba(255,91,62,.28); color: #fff; }
-.atom-nucleus span { font-size: clamp(3.7rem, 7vw, 6.5rem); font-weight: 900; letter-spacing: -.11em; line-height: .8; transform: translateX(-.08em); }
+.atom-nucleus { width: 38%; aspect-ratio: 1; border: 1px solid rgba(255, 177, 90, .52); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 42% 38%, #ff775f, #ff5b3e 43%, #b83d2c 100%); box-shadow: 0 0 0 1.2rem rgba(255,91,62,.04), 0 0 4rem rgba(255,91,62,.28); color: #fff; text-decoration: none; }
+.atom-nucleus span { font-size: clamp(1.55rem, 3.2vw, 2.6rem); font-weight: 900; letter-spacing: .04em; line-height: .8; }
 .atom-nucleus small { margin-top: .75rem; color: rgba(255,255,255,.72); font-size: .56rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .atom-electron { position: absolute; z-index: 4; width: 3.55rem; height: 3.55rem; border: 1px solid rgba(255, 177, 90, .68); border-radius: 50%; background: #0c1b2a; color: var(--cream); display: grid; place-items: center; box-shadow: 0 0 0 .55rem rgba(255,177,90,.04), 0 .8rem 2rem rgba(0,0,0,.34); font-size: .68rem; font-weight: 850; cursor: pointer; animation: atom-electron-float 3.2s ease-in-out infinite; transition: width 180ms ease, height 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .atom-electron:hover, .atom-electron:focus-visible, .atom-electron.active { width: 4rem; height: 4rem; border-color: var(--coral); background: var(--coral); color: #fff; box-shadow: 0 0 0 .7rem rgba(255,91,62,.08), 0 0 2.5rem rgba(255,91,62,.32); }
@@ -1177,6 +1177,8 @@ summary {
 .atom-electron-3 { left: 1%; top: 48%; animation-delay: -1.8s; }
 .atom-hint { margin: .5rem 0 0; display: flex; align-items: center; justify-content: center; gap: .65rem; color: var(--muted); font-size: .72rem; }
 .atom-hint span { color: var(--coral); }
+.atom-page-link { display: flex; justify-content: center; gap: .45rem; margin-top: 1rem; color: var(--cream); font-size: .78rem; font-weight: 800; text-decoration: none; }
+.atom-page-link:hover, .atom-page-link:focus-visible { color: var(--coral); }
 .atom-detail { margin-top: 2rem; padding: 1.25rem 1.3rem; border: 1px solid rgba(255,177,90,.28); border-radius: 1rem; display: grid; grid-template-columns: 2.4rem 1fr; gap: 1rem; background: rgba(255,255,255,.028); box-shadow: 0 1rem 2.5rem rgba(0,0,0,.12); }
 .atom-detail > span { color: var(--coral); font-size: .72rem; font-weight: 850; letter-spacing: .1em; }
 .atom-detail h3 { margin: 0 0 .45rem; font-size: 1.02rem; letter-spacing: -.02em; }
@@ -1509,7 +1511,7 @@ summary {
   .atom-electron { width:3rem; height:3rem; }
   .atom-electron:hover, .atom-electron:focus-visible, .atom-electron.active { width:3.4rem; height:3.4rem; }
   .atom-nucleus { width:40%; }
-  .atom-nucleus span { font-size:3.6rem; }
+  .atom-nucleus span { font-size:1.5rem; }
   .atom-nucleus small { font-size:.46rem; }
   .contact-action > p { margin-top:0; }
 }

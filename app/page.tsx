@@ -710,10 +710,10 @@ export default function Home() {
               <span className="atom-orbit atom-orbit-one" aria-hidden="true" />
               <span className="atom-orbit atom-orbit-two" aria-hidden="true" />
               <span className="atom-orbit atom-orbit-three" aria-hidden="true" />
-              <div className="atom-nucleus" aria-hidden="true">
-                <span>JV</span>
+              <Link className="atom-nucleus" href="/atom" aria-label={content.about.atomLink}>
+                <span>ATOM</span>
                 <small>{content.about.nucleus}</small>
-              </div>
+              </Link>
               {content.about.points.map((point, index) => (
                 <button
                   type="button"
@@ -728,6 +728,7 @@ export default function Home() {
               ))}
             </div>
             <p className="atom-hint"><span aria-hidden="true">↗</span>{content.about.atomHint}</p>
+            <Link className="atom-page-link" href="/atom">{content.about.atomLink} <span aria-hidden="true">→</span></Link>
           </div>
           <div className="about-copy">
             <p className="eyebrow"><span /> {content.about.eyebrow}</p>
