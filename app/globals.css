@@ -1167,8 +1167,8 @@ summary {
 .atom-orbit-one { animation: atom-orbit-one 18s linear infinite; }
 .atom-orbit-two { border-color: rgba(255, 177, 90, .62); animation: atom-orbit-two 22s linear infinite reverse; }
 .atom-orbit-three { border-color: rgba(255, 242, 223, .32); animation: atom-orbit-three 26s linear infinite; }
-.atom-nucleus { width: 38%; aspect-ratio: 1; border: 1px solid rgba(255, 177, 90, .52); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 42% 38%, #ff775f, #ff5b3e 43%, #b83d2c 100%); box-shadow: 0 0 0 1.2rem rgba(255,91,62,.04), 0 0 4rem rgba(255,91,62,.28); color: #fff; }
-.atom-nucleus span { font-size: clamp(3.7rem, 7vw, 6.5rem); font-weight: 900; letter-spacing: -.11em; line-height: .8; transform: translateX(-.08em); }
+.atom-nucleus { width: 38%; aspect-ratio: 1; border: 1px solid rgba(255, 177, 90, .52); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 42% 38%, #ff775f, #ff5b3e 43%, #b83d2c 100%); box-shadow: 0 0 0 1.2rem rgba(255,91,62,.04), 0 0 4rem rgba(255,91,62,.28); color: #fff; text-decoration: none; }
+.atom-nucleus span { font-size: clamp(1.55rem, 3.2vw, 2.6rem); font-weight: 900; letter-spacing: .04em; line-height: .8; }
 .atom-nucleus small { margin-top: .75rem; color: rgba(255,255,255,.72); font-size: .56rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .atom-electron { position: absolute; z-index: 4; width: 3.55rem; height: 3.55rem; border: 1px solid rgba(255, 177, 90, .68); border-radius: 50%; background: #0c1b2a; color: var(--cream); display: grid; place-items: center; box-shadow: 0 0 0 .55rem rgba(255,177,90,.04), 0 .8rem 2rem rgba(0,0,0,.34); font-size: .68rem; font-weight: 850; cursor: pointer; animation: atom-electron-float 3.2s ease-in-out infinite; transition: width 180ms ease, height 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .atom-electron:hover, .atom-electron:focus-visible, .atom-electron.active { width: 4rem; height: 4rem; border-color: var(--coral); background: var(--coral); color: #fff; box-shadow: 0 0 0 .7rem rgba(255,91,62,.08), 0 0 2.5rem rgba(255,91,62,.32); }
@@ -1177,6 +1177,9 @@ summary {
 .atom-electron-3 { left: 1%; top: 48%; animation-delay: -1.8s; }
 .atom-hint { margin: .5rem 0 0; display: flex; align-items: center; justify-content: center; gap: .65rem; color: var(--muted); font-size: .72rem; }
 .atom-hint span { color: var(--coral); }
+.atom-page-link { display: flex; justify-content: center; gap: .45rem; margin-top: 1rem; color: var(--cream); font-size: .78rem; font-weight: 800; text-decoration: none; }
+.atom-page-link:hover, .atom-page-link:focus-visible { color: var(--coral); }
+.atom-page{min-height:100vh;background:#060b12;color:#eff7ff;padding:1.25rem clamp(1.2rem,5vw,5rem) 4rem}.atom-nav{max-width:72rem;margin:auto;display:flex;justify-content:space-between;color:#8ea4b6;font-size:.78rem}.atom-nav a,.atom-closing a{color:#eff7ff;text-decoration:none;font-weight:800}.atom-opening{max-width:72rem;margin:2rem auto 6rem;background:#101820;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch}.atom-portrait{min-height:31rem;position:relative;background:#02070c}.atom-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}.atom-intro{padding:clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#111b25,#090d13)}.atom-kicker{color:#63cfff;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:850}.atom-intro h1{font-size:clamp(4rem,9vw,7rem);line-height:.8;letter-spacing:-.07em;margin:1rem 0}.atom-intro>p:not(.atom-kicker),.atom-section>p{color:#b8c8d5;line-height:1.7;font-size:1.05rem}.atom-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}.atom-actions a{background:#168ee2;color:white;text-decoration:none;font-weight:850;padding:.8rem 1rem;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}.atom-section{max-width:62rem;margin:auto;padding:5rem 0;border-top:1px solid rgba(125,180,214,.18)}.atom-section h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.055em;line-height:1;margin:.7rem 0 1.3rem}.atom-stack{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.7rem 0}.atom-stack span{border:1px solid #277aa9;border-radius:999px;padding:.45rem .75rem;color:#7ed8ff;font-size:.8rem}.atom-note{color:#8ea4b6!important;font-size:.9rem!important}.atom-closing{max-width:62rem;margin:2rem auto;text-align:center;color:#63cfff}.atom-closing a{display:inline-block;margin-top:.8rem}@media(max-width:760px){.atom-nav{flex-direction:column;gap:.5rem}.atom-opening{grid-template-columns:1fr;margin-top:1rem}.atom-portrait{min-height:25rem}.atom-intro{padding:2rem}.atom-actions{flex-direction:column}.atom-actions a{text-align:center}}
 .atom-detail { margin-top: 2rem; padding: 1.25rem 1.3rem; border: 1px solid rgba(255,177,90,.28); border-radius: 1rem; display: grid; grid-template-columns: 2.4rem 1fr; gap: 1rem; background: rgba(255,255,255,.028); box-shadow: 0 1rem 2.5rem rgba(0,0,0,.12); }
 .atom-detail > span { color: var(--coral); font-size: .72rem; font-weight: 850; letter-spacing: .1em; }
 .atom-detail h3 { margin: 0 0 .45rem; font-size: 1.02rem; letter-spacing: -.02em; }
@@ -1509,7 +1512,7 @@ summary {
   .atom-electron { width:3rem; height:3rem; }
   .atom-electron:hover, .atom-electron:focus-visible, .atom-electron.active { width:3.4rem; height:3.4rem; }
   .atom-nucleus { width:40%; }
-  .atom-nucleus span { font-size:3.6rem; }
+  .atom-nucleus span { font-size:1.5rem; }
   .atom-nucleus small { font-size:.46rem; }
   .contact-action > p { margin-top:0; }
 }
