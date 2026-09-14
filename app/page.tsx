@@ -796,6 +796,7 @@ export default function Home() {
           <span className="brand-signature" aria-hidden="true" />
         </a>
         <nav className="footer-links" aria-label={content.footer.legalAria}>
+          <a href="https://github.com/jvictorsc2018-dot" target="_blank" rel="noreferrer">GitHub</a>
           <a href="#termos">{content.footer.terms}</a>
           <a href="#cancelamento">{content.footer.cancellation}</a>
           <a href="#privacidade">{content.footer.privacy}</a>
