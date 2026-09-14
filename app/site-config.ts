@@ -1,1 +1,1 @@
-export const siteUrl = "https://joao-victor-web.jvictorsc2018.chatgpt.site";
+export const siteUrl = "https://jvictor.dev.br";
